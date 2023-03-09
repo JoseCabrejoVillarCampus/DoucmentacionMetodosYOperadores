@@ -1,10 +1,12 @@
 
 
-    ".repeat(n): Repite la cadena N veces"
+
+".replace():Remplaza partes de un string por carácteres."
 
 
-// EJEMPLO 1
-let ejemplo = "hola"
-let print = ejemplo.repeat(2)
-console.log(print)
 
+
+// EJEMPLO_2 
+let ejemplo2 = "Hello World"
+let print2 = ejemplo2.replace("ello", "-")
+console.log(print2)
