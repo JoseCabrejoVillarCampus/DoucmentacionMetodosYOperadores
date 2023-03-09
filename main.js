@@ -1,11 +1,16 @@
 
-    ".match(regex): Devuelve todas las ocurrencias de una expresión regular dentro de una cadena."
+".matchAll(regex) :Retorna un interador de todos los resultados que coinciden con una cadena de una expresión regular, incluyendo grupos capurados"
 
 
-// EJEMPLO 1
-//Devuelve la primera conincidencia de la palabra encontrada + su posición
-let ejemplo = "Hola Soy Un Ejemplo";
-let ejemplo_2 = /[A-Z]/g;
-let otro = ejemplo.match(ejemplo_2);
-console.log(otro);
+   
+// EJEMPLOS
+const regexp = /t(e)(st(\d?))/g;
+const str = 'test1test2';
 
+const array = [...str.matchAll(regexp)];
+
+console.log(array[0]);
+// Expected output: Array ["test1", "e", "st1", "1"]
+
+console.log(array[1]);
+// Expected output: Array ["test2", "e", "st2", "2"]
