@@ -1,6 +1,14 @@
-    
-    "El método slice() devuelve una copia de una parte del array dentro de un nuevo array empezando por inicio hasta fin (fin no incluido). El array original no se modificará.."
+
+    "substring : Devuelve el subconjunto especificado de la cadena, ya sea especificando los índices inicial y final o el índice inicial y una longitud."
 
 
-var nombres = ['Rita', 'Pedro', 'Miguel', 'Ana', 'Vanesa'];
-var masculinos = nombres.slice(1, 3);
+// EJEMPLO 1
+//Devuelve la primera conincidencia de la palabra encontrada + su posición
+let ejemplo = "Hola soy un ejemplo";
+let otro = ejemplo.substring(0, 3);
+console.log(otro);
+
+// EJEMPLO 2
+let ejemplo2 = "Hola soy el siguiente ejemplo";
+let otro2 = ejemplo2.substring(15,1);
+console.log(otro2);
