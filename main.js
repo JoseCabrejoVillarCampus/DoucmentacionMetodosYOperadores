@@ -1,52 +1,29 @@
-//                              Operadores de comparación
+//                              Operadores aritméticos
 
-//Un operador de comparación compara sus operandos y devuelve un valor lógico en función 
-//de si la comparación es verdadera (true) o falsa (false). Los operandos pueden ser valores 
-//numéricos, de cadena, lógicos u objetos. Las cadenas se comparan según el orden lexicográfico 
-//estándar, utilizando valores Unicode. En la mayoría de los casos, si los dos operandos no son 
-//del mismo tipo, JavaScript intenta convertirlos a un tipo apropiado para la comparación. Este 
-//comportamiento generalmente resulta en comparar los operandos numéricamente. Las únicas 
-//excepciones a la conversión de tipos dentro de las comparaciones involucran a los 
-//operadores === y !==, que realizan comparaciones estrictas de igualdad y desigualdad. Estos 
-//operadores no intentan convertir los operandos a tipos compatibles antes de verificar la igualdad. 
-//La siguiente tabla describe los operadores de comparación en términos de este código de ejemplo:
+//Un operador aritmético toma valores numéricos (ya sean literales o variables) como sus operandos 
+//y devuelve un solo valor numérico. Los operadores aritméticos estándar son suma (+), resta (-), 
+//multiplicación (*) y división (/). Estos operadores funcionan como lo hacen en la mayoría de los 
+//otros lenguajes de programación cuando se usan con números de punto flotante (en particular, ten 
+//en cuenta que la división entre cero produce Infinity).
 
-//Igual (==) 	Devuelve true si los operandos son iguales. 	
+//Además de las operaciones aritméticas estándar (+, -, *, /), JavaScript proporciona los operadores 
+//aritméticos enumerados en la siguiente tabla:
 
-3 == var1
-"3" == var1
-3 == '3'
+//Residuo (%) 	= Operador binario. Devuelve el resto entero de dividir los dos operandos. 	
 
-//No es igual (!=) 	Devuelve true si los operandos no son iguales. 	
+12 % 5 //devuelve 2.
 
-var1 != 4
-var2 != "3"
+//Incremento (++) =Operador unario. Agrega uno a su operando. 
+//Si se usa como operador prefijo (++x), devuelve el valor de su operando después de agregar uno; si se usa como operador sufijo (x++), devuelve el valor de su operando antes de agregar uno. 	Si x es 3, ++x establece x en 4 y devuelve 4, mientras que x++ devuelve 3 y , solo entonces, establece x en 4.
 
-//Estrictamente igual (===) 	Devuelve true si los operandos son iguales y del mismo tipo. Consulta también Object.is y similitud en JS. 	
+//Decremento (--) 	=Operador unario. Resta uno de su operando. El valor de retorno es análogo al del operador de incremento. 	
+//Si x es 3, entonces --x establece x en 2 y devuelve 2, mientras que x-- devuelve 3 y, solo entonces, establece x en 2.
 
-3 === var1
+//Negación unaria (-) 	=Operador unario. Devuelve la negación de su operando. 	
+//Si x es 3, entonces -x devuelve -3.
 
-//Desigualdad estricta (!==) 	Devuelve true si los operandos son del mismo tipo pero no iguales, o son de diferente tipo. 	
+//Positivo unario (+) 	=Operador unario. Intenta convertir el operando en un número, si aún no lo es. 	
+//+"3" devuelve 3. +true devuelve 1.
 
-var1 !== "3"
-3 !== '3'
-
-//Mayor que (>) 	Devuelve true si el operando izquierdo es mayor que el operando derecho. 	
-
-var2 > var1 
-"12" > 2
-
-//Mayor o igual que (>=) 	Devuelve true si el operando izquierdo es mayor o igual que el operando derecho. 	
-
-var2 >= var1 
-var1 >= 3
-
-//Menor que (<) 	Devuelve true si el operando izquierdo es menor que el operando derecho. 	
-
-var1 < var2
-"2" < 12
-
-//Menor o igual (<=) 	Devuelve true si el operando izquierdo es menor o igual que el operando derecho. 	
-
-var1 <= var2 
-var2 <= 5
+//Operador de exponenciación (**) 	Calcula la base a la potencia de exponente, es decir, baseexponente 	
+//2 ** 3 returns 8. 10 ** -1 returns 0.1.
