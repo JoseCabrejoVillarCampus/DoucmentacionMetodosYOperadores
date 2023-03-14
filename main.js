@@ -1,29 +1,43 @@
-//                                  ARROW FUNCTIONS
+//                                  Object.fromEntries()
 
 
-//Tambien llamadas funciones flecha o «fat arrow» son una forma corta de escribir funciones 
-//que aparece en Javascript a partir de ECMAScript 6. Básicamente, se trata de reemplazar eliminar
-//la palabra function y añadir => antes de abrir las llaves:
+//El método Object.fromEntries() toma una lista de pares clave-valor y devuelve un nuevo objeto cuyas propiedades 
+//vienen dadas por esas entradas. Se espera que el argumento iterable sea un objeto que implemente un método @iterator. 
+//El método devuelve un objeto iterador que produce objetos tipo array de dos elementos. El primer elemento es un valor 
+//que se utilizará como clave de propiedad, y el segundo elemento es el valor que se asociará a esa clave de propiedad.
+//Object.fromEntries() realiza la operación inversa a Object.entries(), salvo que Object.entries() sólo devuelve propiedades 
+//con clave de cadena, mientras que Object.fromEntries() también puede crear propiedades con clave de símbolo.
+
+
  
-
-const hora = function () {
-  return "Función tradicional.";
-};
-
-const hora1= () => {
-  return "Función flecha.";
-};
- // VENTAJAS:
+//Convertir un mapa en objeto
 
 
- /* Si el cuerpo de la función sólo tiene una línea, podemos omitir las llaves ({}). */
- /* Además, en ese caso, automáticamente se hace un return de esa única línea, por lo que podemos omitir también el return. */
- /* En el caso de que la función no tenga parámetros, se indica como en el ejemplo anterior: () =>. */
- /* En el caso de que la función tenga un solo parámetro, se puede indicar simplemente el nombre del mismo: e =>. */
- /* En el caso de que la función tenga 2 ó más parámetros, se indican entre paréntesis: (a, b) =>. */
- /* Si queremos devolver un objeto, que coincide con la sintaxis de las llaves, se puede englobar con paréntesis: ({name: 'Manz'}). */
+const map = new Map([
+  ["nombre", "jose"],
+  ["edad", 30],
+]);
+const obj = Object.fromEntries(map);
+console.log(obj); // { nombre: "jose", edad: 30 }
+
+//Convertir un array en objeto
+
+const arr = [
+  ["nombre", "jose "],
+  ["edad", "30"],
+  ["sexo", "M"],
+];
+const obj1 = Object.fromEntries(arr);
+console.log(obj1); // { nombre: "jose", edad: 30, sexo: "M" }
 
 
-const hora2 = () => "Función flecha."; // 0 parámetros: Devuelve "Función flecha"
-const hora3 = (e) => e + 1; // 1 parámetro: Devuelve el valor de e + 1
-const hora4 = (a, b) => a + b; // 2 parámetros: Devuelve el valor de a + b
+//Con Object.fromEntries, que es un metodo reverso de  Object.entries(), y metodos de manipulaciond de arrays:
+
+const object1 = { a: 1, b: 2, c: 3 };
+
+const object2 = Object.fromEntries(
+  Object.entries(object1).map(([key, val]) => [key, val * 2]),
+);
+
+console.log(object2);
+// { a: 2, b: 4, c: 6 }
