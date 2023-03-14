@@ -1,18 +1,20 @@
-//                                  FUNCIONES ANONIMAS(LAMBDA)
+//                                  FUNCIONES CALLBACKS
 
 
-//Son un tipo de funcion que se declaran sin nokmbre de funcion y se alojan al interior de una variable,
-//haciendo referencia a ella cada vez que queramos usarla.
-//Si ejecutamos la variable, ejecutamos la funcion d¿que contien la variable, de lo contrario nos devuelve 
-//la funcion en sí
+//Tambien conocidas como funciones callbacks o retrollamadas, basicamente es pasar una funcion B por parametro
+//a una funcion A, de esta forma la funcion A puede ejecutar a la funcion B de forma generica desde su codigo y
+//se puede definir desde fuera de la funcion.
 
-//La diferencia entre funciondes declaradas y funciones por expresion, es que por expresion solo estan disponibles
-//despues de la iniciacion de la variable, si la ejecutamos antes de declararlas nos dara un error. 
+
+//Esto nos permite crear varias funciones a modo de callback y reutilizarlas posteriormente. 
 
 
 const hora = function () {
-    return "Es la una";
-  };
-  
-  hora; // ƒ () { return 'Es la una'; }
-  hora(); // 'Es la una'
+  console.log("Es la una");
+};
+
+const tiempo = function (callback) {
+  callback();
+};
+
+tiempo(hora);
