@@ -1,17 +1,21 @@
-//                                  FUNCIONES AUTOEJECUTABLES
+//                                  CLAUSURAS
 
 
-//Se usan en los casos donde necesitamos crear y ejecutar una funcion sobre la marcha. solo tenemos que envolver
-//en parentesis la funcion anonima.
-//Tambien podemos utilizar parametros en dichas funciones.
+//Tambien llamadas cierres, son funciones que encierran variables en su propio ambito.
+//En el interior de la funcion autoejecutable, creamos una variable que se guardara en
+//el ambito de dicha funcion.
  
 
 
-(function () {
-  console.log("Es la ");
+const incr = (function () {
+  let num = 0;//variable almacenada dentro de la funcion
+  return function () {
+    num++;
+    return num;
+  };
 })();
 
-// Función autoejecutable con parámetros
-(function (hora) {
-  console.log(`¡Es la, ${hora}!`);
-})("Manz");
+typeof incr; // 'function'
+incr(); // 1
+incr(); // 2
+incr(); // 3
