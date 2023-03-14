@@ -1,20 +1,17 @@
-//                                  FUNCIONES CALLBACKS
+//                                  FUNCIONES AUTOEJECUTABLES
 
 
-//Tambien conocidas como funciones callbacks o retrollamadas, basicamente es pasar una funcion B por parametro
-//a una funcion A, de esta forma la funcion A puede ejecutar a la funcion B de forma generica desde su codigo y
-//se puede definir desde fuera de la funcion.
+//Se usan en los casos donde necesitamos crear y ejecutar una funcion sobre la marcha. solo tenemos que envolver
+//en parentesis la funcion anonima.
+//Tambien podemos utilizar parametros en dichas funciones.
+ 
 
 
-//Esto nos permite crear varias funciones a modo de callback y reutilizarlas posteriormente. 
+(function () {
+  console.log("Es la ");
+})();
 
-
-const hora = function () {
-  console.log("Es la una");
-};
-
-const tiempo = function (callback) {
-  callback();
-};
-
-tiempo(hora);
+// Función autoejecutable con parámetros
+(function (hora) {
+  console.log(`¡Es la, ${hora}!`);
+})("Manz");
