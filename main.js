@@ -1,18 +1,16 @@
-//                                  FUNCIONES POR DECLARACION
+//                                  FUNCIONES POR EXPRESION
 
 
-//Nos permite declarar una función que existirá a lo largo de todo el codigo, es la mas popular
-// debido a la similitud con otros lenguajes de programacion.
-//JavaScript primero busca declaraciones de funciones y luego procesa el resto del codigo.
+//Son funciones que estan guardadas dentro de una variable para posteriormente ser ejecutadas.
+//De este modo el nombre de la funcion pasa a ser el nombre ed ela variable, mientras el nombre 
+//de la funcion desaparece y s e omite, dando paso a lo que se llaman funciones anonimas(Lambda).
 
 
-function Hora() {
-    return "Es la Una";
-  }
+const tiempo = function hora() {
+    return "Es la una";
+  };
   
-  Hora();
-  typeof Hora; 
-
+  tiempo(); //retorna Es la una
 
 
 
