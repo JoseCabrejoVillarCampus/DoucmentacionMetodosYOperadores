@@ -1,84 +1,30 @@
-//                                  Promesas
+//                                  Async/Await
 
-/*Las promesas son una nueva forma de realizar acciones asincronicas dentro de javaScript 
+/*Es la forma mas moderna de trabajar la asincronia*/
 
-Con las promesas de JavaScript hacemos esto usando una función callback (gestores de promesas). 
-Estas funciones están definidas en el método anidadothen().
-Para especificar que callbacks usar, usa las siguientes funciones:
-
-    resolve(value): Esta indica que la tarea asincrónica se realizó correctamente. Esto ejecutará 
-    el callback de cumplimiento en el controlador then().
-    reject(error): Esta indica un error mientras se intenta realizar la tarea asincrónica. Esta 
-    ejecutará el callback de error en el controlador  then().
-Si la promesa se cumple, el callback de cumplimiento se ejecutará, de lo contrario se ejecuta el 
-callback de error.
-Una promesa es un simple texto provisional para una tarea asincrónica que aún no se ha completado. 
-Cuando defines una promesa en tu script, en vez de devolver un valor inmediatamente, esta devuelve una promesa. */
-
-
-// Se crean de la sigueinte forma:
-
-const doAsyncStuffWithPromises =(num1, num2)=>{
-    const resultado = num1 + num2
-    return new promises (resolve =>{
-        setTimeout(()=>{
-            resolve(resultado)
-        },500)
-    }) 
-}
-
-//luego
-
-new Promise ((resolve, reject)=>{
+async function miFunctionAsync(){
     try{
-        resolve('la promesa fue exitosa');
-    }catch (error){
-        reject(error);
+        const resultado = await miPromesa();
+    }catch(error){
+        console.log(error);
     }
-});
-
-/* Esta resive 2 parametros (resolve, reject), que se ejecutaran en caso de exito o error, tambien 
-se le pueden pasar argumentos a estos parametros.
-luego usamos el metodo then para realizar una accion cuando una promeasa se resuelva, de caso contrario 
-uisamos catch para tomar el error y resolverlo correctamente*/
-
-miPromesa()
-    .then((value)=>console.log('exito ${value}'))
-    .catch((value)=>console.log('fallo ${error}'))
-
-/* Ahora usaremos fetch (API nueva del navregafdor) para realizar peticiones HTTP que utiliza proesas */
-
-fetch (API_URL)
-    .then((res)=>res.json())
-    .then((json)=>console.log(json))
-    .catch((error)=>console.log('fallo ${error}'))
-
-/* Podemos encadenar los then (promesas) que queramos, pero catch no necesita duplicarce, este atrapa
-cualquier error que surja de las promesas*/
-/* Transformamos una funcion callbacck a una promesa de la siguiente manera: */
-
-function cargarArchivoCallBack(file,callback){
-    const reader = new FileReader();
-    reader.addEventListener('load',callback);
-    reader.readAsDataURL(file);
 }
+/* Usamos await para detenr la ejecucion del programa en este puinto y esperar que la promesas
+se resuelva; si tiene exito retorna el valor y lo guarda en una variable, de lo contrario, lanzara
+una excepcion con el error, por eso usamos try/catch */
 
-function cargarArchivoPromesa(file){
-    return new promise ((resolve,reject)=>{
-        try{
-            //logica que se usara
-            //llamamos la funcion resolve
-            const reader = new FileReader();
-            reader.addEventListener('loas',resolve);
-            reader.readAsDataURL(file),
-        }catch(error){
-            reject(error);
-        }
-    })
+/* la unica condicion para usar await, es que debe estar dentro de una funcion declarada con aysnc */
+
+async function getPerrito(){
+    try{
+        //esperamos que la promesa resuelva y guardamos en una const
+        const res = await fetch (API_URL);
+        //Esperamos la sigueitne promesa y guardamos el valor
+        const Json = await res,json();
+        console.log(json);
+    }catch(error){
+        //recibe el primer error y se lanza durante le ejecucuion del try
+        console.log('ocurrio un error: ${error');
+    }
 }
-cargarArchivoCallBack(file,(e)=>{
-    Image.src= e.target.result;
-})
-cargarArchivoPromesa (file).then((e)=>{
-    Image.src=e.target.result;
-})
+getPerrito();
